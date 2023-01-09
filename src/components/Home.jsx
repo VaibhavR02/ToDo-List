@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
+
 import Task from './Task';
 import './task.css';
 
@@ -12,6 +14,7 @@ const Home = () => {
   const [description, setDescription] = useState('');
 
   const deleteTask = (index) => {
+    toast.success('deleted');
     const filteredArr = tasks.filter((val, i) => {
       return i !== index;
     });
@@ -19,6 +22,7 @@ const Home = () => {
   };
 
   const submitHandler = (e) => {
+    toast.success('task added');
     e.preventDefault();
     setTasks([...tasks, { title, description }]);
     setTitle('');
